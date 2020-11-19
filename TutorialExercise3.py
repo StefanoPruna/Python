@@ -41,7 +41,7 @@ def hasDuplicates():
     myNickname = input("insert your nickname: ")
     myFavouriteName = input("Insert how you want to be called: ")
     myList = [myName, myNickname, myFavouriteName]
-    check = []
+    check = hasDuplicates
     for element in myList:
         if element in check:
             print("you have a duplicate")
@@ -50,7 +50,7 @@ def hasDuplicates():
 
     print(myList)
 
-hasDuplicates()
+hasDuplicates(check(myList))
 
 def factorial(n):
     product = 1
