@@ -36,21 +36,20 @@ x =1
 y = x + 1
 print(c(x, y + 3, x + y))
 
-def hasDuplicates():
+def hasDuplicates(myList):
     myName = input("Insert your name: ")
     myNickname = input("insert your nickname: ")
     myFavouriteName = input("Insert how you want to be called: ")
     myList = [myName, myNickname, myFavouriteName]
-    check = hasDuplicates
-    for element in myList:
-        if element in check:
+    check = []
+    for item in myList:
+        if item == check:
             print("you have a duplicate")
         else:
             print("You don't have duplicate")
-
     print(myList)
 
-hasDuplicates(check(myList))
+hasDuplicates(myList)
 
 def factorial(n):
     product = 1

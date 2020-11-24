@@ -24,6 +24,7 @@ for i in range(len(numbers)):
 print(numbers)
 numbers[2] = numbers[2] + 1 #it modifies the third item in the list by adding 1 in the number
 print(numbers)
+numbers[2] = 3 #the third item changes the value to 3 now
 print(numbers[1: 3]) #start to print from the second element in the list, print until the fourth element in the list
 numbers.extend([6, 7]) # extend is to add item in the list
 print(numbers)
