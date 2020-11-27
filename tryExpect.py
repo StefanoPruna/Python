@@ -4,6 +4,8 @@ def divide():
         y = int(input("insert the second number: "))
         result = x / y
         raise TypeError("Expected integer")
+    except (ValueError, TypeError):
+        print("It must be an integer")
     except ZeroDivisionError:
         print("Divide by zero")
     else:

@@ -1,4 +1,4 @@
-
+#
 """ Function 1: Asking the question until the input isn't: 0, a negative or not a number"""
 while True:
     try:
