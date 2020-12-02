@@ -1,5 +1,4 @@
-""" Function 1: Asking the question until the input isn't: 0, a negative or not a number"""
-#branches = 0
+""" Function 1: Asking the question until the input isn't: 0, a negative or not a number """
 def checkBranches():
     while True:
         try:
@@ -10,59 +9,49 @@ def checkBranches():
         except AssertionError: #Check if the input is 0 or negative
             print("Number of branches must be at least 1: ")
         else:
-            print(branches)
+            return branches
             break
-    nBranch = 1
-    while nBranch == branches: #error here
-            try:
-                computer = int(input("Enter the number of books for Computer of branch" + nBranch + ":"))
-                physics = int(input("Enter the number of books for Physics of branch " + nBranch + ":" ))
-                chemistry = int(input("Enter the number of books for Chemistry of branch " + nBranch + ": "))
-                biology = int(input("Enter the number of books for Biology of branch " + nBranch + ": "))
-                arts = int(input("Enter the number of books for Arts of branch " + nBranch + ": "))     
-                assert computer > 0
-                assert physics > 0
-                assert chemistry > 0
-                assert biology > 0
-                assert arts > 0
-            except (ValueError, TypeError):
-                print("Number of books must be an integer: ")
-            except AssertionError:
-                print("Number of books must be non-negative: ")
-                nBranch += 1
-    bookCategories = {"Computer" : computer, "Physics": physics, "Chemistry": chemistry, "Biology": biology, "Arts": arts}
-    total = sum(available.values())
-    print(total) 
-
-"""
-checkBranches()
-nBranch = 1
 
 #Fucntion 2: Ask for the number of books for each category for each branch 
-while nBranch != branches: #error here
-    try:
-        computer = int(input("Enter the number of books for Computer of branch" + nBranch + ":"))
-        physics = int(input("Enter the number of books for Physics of branch " + nBranch + ":" ))
-        chemistry = int(input("Enter the number of books for Chemistry of branch " + nBranch + ": "))
-        biology = int(input("Enter the number of books for Biology of branch " + nBranch + ": "))
-        arts = int(input("Enter the number of books for Arts of branch " + nBranch + ": "))     
-        assert computer > 0
-        assert physics > 0
-        assert chemistry > 0
-        assert biology > 0
-        assert arts > 0
-    except (ValueError, TypeError):
-        print("Number of books must be an integer: ")
-    except AssertionError:
-        print("Number of books must be non-negative: ")
-        nBranch += 1
-        bookCategories = {"Computer" : computer, "Physics": physics, "Chemistry": chemistry, "Biology": biology, "Arts": arts}
-        total = sum(available.values())
-        print(total) 
-"""
+def checkBooks():
+    while True:
+        try:
+            computer = int(input("Enter the number of books for Computer of branch " + nBranch + ":"))
+            physics = int(input("Enter the number of books for Physics of branch " + nBranch + ":" ))
+            chemistry = int(input("Enter the number of books for Chemistry of branch " + nBranch + ": "))
+            biology = int(input("Enter the number of books for Biology of branch " + nBranch + ": "))
+            arts = int(input("Enter the number of books for Arts of branch " + nBranch + ": "))    
+            bookCategories = {"Computer": computer, "Physics": physics, "Chemistry": chemistry, "Biology": biology, "Arts": arts} 
+            assert computer > 0
+            assert physics > 0
+            assert chemistry > 0
+            assert biology > 0
+            assert arts > 0
+        except (ValueError, TypeError):
+            print("Number of books must be an integer: ")
+        except AssertionError:
+            print("Number of books must be non-negative: ")
+        else:
+            return bookCategories
+            break
 
+def checkTotalBooks():
+    nBranch = 1
+    checkBranches()
+    checkBooks()
+    while True:
+        for book in bookCategories:
+            if nBranch in bookCategories:
+                nBranch += 1
+                checkBooks()
+            else:
+                total = sum(bookCategories.values())
+                print(branches, total, bookCategories)
+                break
+
+checkTotalBooks()
         
-        # Alternative way
+        # Alternative way to sum the total
         # result = {}
         # #bookCategories = ["Computer", "Physics", "Chemistry", "Biology", "Arts"]
         # for book in bookCategories:
