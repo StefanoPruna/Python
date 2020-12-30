@@ -1,0 +1,18 @@
+Hello
+
+this is a simple report test
+
+python
+with open("report.txt") as file_in:
+...     for line in file_in: 
+...             word = line.strip()
+...             print(word)
+
+then enter and it will print the content of the report.txt file
+
+file_out.write(line )
+it will rewrite all the content
+another way is:
+file_out = open("report.txt", "w")
+line4 = "ciao a tutti"
+and it will replace the content and place it in the line4

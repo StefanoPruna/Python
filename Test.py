@@ -1,13 +1,5 @@
-branches = 0
-bookCategories = {}
 numbOfBranches = []
-
-def countTotal():
-    total = sum(bookCategories.values())
-    average = float(total / 5)
-    print("The Books per category are: " + str(bookCategories) + ";")
-    print("The total amount of books are: " + str(total) + ";")
-    print("And the average of books is: " + str(average))
+#bookCategories = {}
 
 def checkBranches():
     while True:
@@ -29,29 +21,32 @@ def checkBranches():
         print(numbOfBranches)
 
 
-def countBook():
-    checkBranches()
-    while True:
-        try:
-            for i in numbOfBranches:
-                computer = int(input("Enter the number of books for Computer of branch  : "))
-                physics = int(input("Enter the number of books for Physics of branch: " ))
-                chemistry = int(input("Enter the number of books for Chemistry of branch: "))
-                biology = int(input("Enter the number of books for Biology of branch "))
-                arts = int(input("Enter the number of books for Arts of branch: "))    
-                bookCategories = {"Computer": computer, "Physics": physics, "Chemistry": chemistry, "Biology": biology, "Arts": arts} 
-                assert computer > 0
-                assert physics > 0
-                assert chemistry > 0
-                assert biology > 0
-                assert arts > 0
-        except (ValueError, TypeError):
-            print("Number of books must be an integer: ")
-        except AssertionError:
-            print("Number of books must be non-negative: ")
-        else:
-            countTotal()
-            break
+def countTotal():
+    total = sum(bookCategories.values())
+    average = float(total / 5)
+    print("The Books per category are: " + str(bookCategories) + ";")
+    print("The total amount of books are: " + str(total) + ";")
+    print("And the average of books is: " + str(average))
 
-
-countBook()
+checkBranches()
+while True:
+    try:
+        for i in numbOfBranches:
+            computer = int(input("Enter the number of books for Computer of branch " + str(i) + ": "))
+            physics = int(input("Enter the number of books for Physics of branch " + str(i) + ": "))
+            chemistry = int(input("Enter the number of books for Chemistry of branch " + str(i) + ": "))
+            biology = int(input("Enter the number of books for Biology of branch " + str(i) + ": "))
+            arts = int(input("Enter the number of books for Arts of branch " + str(i) + ": "))    
+            bookCategories = {"Computer": computer, "Physics": physics, "Chemistry": chemistry, "Biology": biology, "Arts": arts} 
+            assert computer > 0
+            assert physics > 0
+            assert chemistry > 0
+            assert biology > 0
+            assert arts > 0
+    except (ValueError, TypeError):
+        print("Number of books must be an integer: ")
+    except AssertionError:
+        print("Number of books must be non-negative: ")
+    else:
+        countTotal()
+        break
