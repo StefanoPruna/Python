@@ -1,3 +1,5 @@
+#With this program we visualize all the directories in the folder
+
 import os
 
 def walk(dirname):

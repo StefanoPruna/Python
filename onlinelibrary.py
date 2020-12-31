@@ -30,8 +30,8 @@ def checkBranches():
         print(numbOfBranches)
     
 
-#Section 3: Call for the function 2, then ask for the number of books for each category for each branch 
-#And then call the function 1   
+#Section 3: Calls for the function 2, then ask for the number of books for each category for each branch 
+#And then calls the function 1   
 checkBranches()
 while True:
     try:
