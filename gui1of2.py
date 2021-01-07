@@ -37,23 +37,25 @@ degreesbox = ttk.Combobox(frame, textvariable = choice)
 degreesbox["values"] = ("Fahrenheit", "Celsius")
 degreesbox.grid(column = 1, row = 1)
 
-fahrEntry = ttk.Entry(frame, width = 7, textvariable = fahrenheit)
-fahrEntry.grid(column = 2, row = 1, sticky = (W, E))
+if (degreesbox == fahrenheit):
+    fahrEntry = ttk.Entry(frame, width = 7, textvariable = fahrenheit)
+    fahrEntry.grid(column = 2, row = 1, sticky = (W, E))
 
-fahrLabel = ttk.Label(frame, text = "Degrees F")
-fahrLabel.grid(column = 3, row = 1, sticky = W)
+    fahrLabel = ttk.Label(frame, text = "Degrees F")
+    fahrLabel.grid(column = 3, row = 1, sticky = W)
 
-equiLabel = ttk.Label(frame, text = "Fahrenheit is equivalent to")
-equiLabel.grid(column = 1, row = 2, sticky = E)
+    equiLabel = ttk.Label(frame, text = "Fahrenheit is equivalent to")
+    equiLabel.grid(column = 1, row = 2, sticky = E)
 
-celsiusLabel = ttk.Label(frame, textvariable = celsius)
-celsiusLabel.grid(column = 2, row = 2, sticky = (W, E))
+    celsiusLabel = ttk.Label(frame, textvariable = celsius)
+    celsiusLabel.grid(column = 2, row = 2, sticky = (W, E))
 
-degreesCLabel = ttk.Label(frame, text = "Degrees C")
-degreesCLabel.grid(column = 3, row = 2, sticky = W)
+    degreesCLabel = ttk.Label(frame, text = "Degrees C")
+    degreesCLabel.grid(column = 3, row = 2, sticky = W)
 
-goButton = ttk.Button(frame, text = "Convert", command = calculate) #when we press the Go button, run the calculate function
-goButton.grid(column = 3, row = 3, sticky = W)
+    goButton = ttk.Button(frame, text = "Convert", command = calculate) #when we press the Go button, run the calculate function
+    goButton.grid(column = 3, row = 3, sticky = W)
+
 
 for child in frame.winfo_children():
     child.grid_configure(padx = 15, pady = 10)
