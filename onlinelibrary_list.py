@@ -5,31 +5,35 @@
 #INCLUDE AND CREATE A README.MD FILE
 #SUBMIT IT AS A SINGLE .TGZ FILE NAMED a3.tgz
 
+FILENAME = open("onlinelibrary.txt", "r")
+readings = {}
+
 def read_data(filename):
-    pass  # TODO: Implement this correctly
+    for line in FILENAME:
+        k, v = line.strip().split(",")
+        if k == k:
+            dictionary = {}
+            readings[k, v] = dictionary
+    return readings
+        
+   
+readings = read_data("readings.txt")
+print(readings)
 
+      
 def get_average_dictionary(readings):
-    pass  # TODO: Implement this correctly
-
-def getData():
-    try:
-        file_in = open("onlinelibrary.txt")
-        for averages in file_in:
-            print(averages)
-    except PermissionError:
-        print("you don't have permission to read the file")
-    except IOError:
-        print("I/O error reading file")
+    pass  # TODO: Implement this correctly  
 
 
-FILENAME = "onlinelibrary.txt"
+#FILENAME = open("onlinelibrary.txt", "r")
 
+    
 if __name__ == "__main__":
     try:
         readings = read_data(FILENAME)
         averages = get_average_dictionary(readings)
 
-        # Loops through the keys in averages, sorted from that with the largest associated value in averages to the lowest - see https://docs.python.org/3.5/library/functions.html#sorted for details
+        #Loops through the keys in averages, sorted from that with the largest associated value in averages to the lowest - see https://docs.python.org/3.5/library/functions.html#sorted for details
         for category in sorted(averages, key = averages.get, reverse = True):
             print(category, averages[category])
 
