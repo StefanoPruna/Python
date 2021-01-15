@@ -1,6 +1,6 @@
 def rotatedAround(toSort, a , b):
     p = toSort[(a + b) // 2]
-    i, j = a - 1, b + 1 #i and j are elements in the toBeSorted list, i starts from 0 while j starts from the last element 6
+    i, j = a - 1, b + 1 #i and j are elements in the toBeSorted list, i starts from 0 while j starts from the last element
     while True:
         i, j = i + 1, j - 1
         while toSort[i] < p:

@@ -1,4 +1,4 @@
-#The following method is called selection sort, linear search, check one item in the list at the time
+#The following method is called selection sort, checks the lowest value in the list and moves it in front and so on
 def indexSmallest(toBeSorted, lower, upper):
     minIndex = lower
     for i in range(lower +1, upper):
