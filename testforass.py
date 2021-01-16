@@ -1,11 +1,36 @@
+import os
+import collections, functools, operator
+from statistics import mean
+
+
+FILENAME = open("onlinelibrary.txt", "r")
+
 def read_data(filename):
-    readings = read_data("onlinelibrary.txt")
-    print(readings)
+    readings = {}
+    for line in FILENAME:
+        (k, v) = line.strip().split(",")
+        if k in readings:
+            readings[k].append(v)
+        else:
+            readings[k] = [v]
+    return readings
+        
+   
+readings = read_data("readings.txt")
+print(readings)
+FILENAME.close()
 
 def get_average_dictionary(readings):
-    pass  # TODO: Implement this correctly
+    averages = {}
+    for k in readings:
+        values = sum([ int(v) / 2 for v in readings[k] ])
+        averages.update({k: values })
+    return averages
 
-FILENAME = "onlinelibrary.txt"
+
+averages = get_average_dictionary(readings)
+print(averages)
+
 
 if __name__ == "__main__":
     try:

@@ -1,32 +1,35 @@
-#LIST TO DO:
-#PRODUCE A LIST OF DIFFERENT CATEGORIES, SORTED FROM THE ONE WITH THE HIGHEST AVERAGE TO THE ONE WITH THE LOWEST
-#ADD READ_DATA AND GET_AVERAGE_DICTIONARY FUNCTIONS
-#ADD COMMENTS
-#INCLUDE AND CREATE A README.MD FILE
-#SUBMIT IT AS A SINGLE .TGZ FILE NAMED a3.tgz
+import os
 
+#Open the text file in read mode
 FILENAME = open("onlinelibrary.txt", "r")
-readings = {}
 
+#Function 1: loops the file that we opened, assigned each category as a key of "readings" dictionary and combines the values of the same category together as a list
 def read_data(filename):
-    for line in FILENAME:
-        k, v = line.strip().split(",")
-        if k == k:
-            dictionary = {}
-            readings[k, v] = dictionary
+    readings = {}
+    for line in FILENAME:  
+        (k, v) = line.strip().split(",")
+        if k in readings:
+            readings[k].append(v)
+        else:
+            readings[k] = [v]
     return readings
         
-   
+#Calling the function 1, print the "readings" dictionary and close the opened file  
 readings = read_data("readings.txt")
 print(readings)
+FILENAME.close()
 
-      
+#Function 2: provides the average of each category from the "readings" dictionary      
 def get_average_dictionary(readings):
-    pass  # TODO: Implement this correctly  
+    averages = {}
+    for k in readings:
+        values = sum([ int(v) / 2 for v in readings[k] ])
+        averages.update({k: values })
+    return averages
 
-
-#FILENAME = open("onlinelibrary.txt", "r")
-
+#Calling the function 2 and print the new dictionary with the average results
+averages = get_average_dictionary(readings)
+print(averages)
     
 if __name__ == "__main__":
     try:
