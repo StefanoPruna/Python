@@ -17,5 +17,5 @@ toBeSorted.append(-3)
 print(selectionsort(toBeSorted))
 
 #The easiest and faster way to sort though, is the following:
-# toBeSorted.sort(reverse=True)
+# toBeSorted.sort(reverse=True) #Method, not function
 # print(toBeSorted)

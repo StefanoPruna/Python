@@ -1,0 +1,10 @@
+Computer,67
+Physics,14
+Chemistry,68
+Biology,15
+Arts,70
+Computer,22
+Physics,23
+Chemistry,44
+Biology,22
+Arts,44
