@@ -4,28 +4,31 @@
 # Submit them as a4.tgz
 from tkinter import * #Import Graphical User Interfaces
 from tkinter import ttk #ttk is the newer graphic/style
+from tkinter import messagebox as mbox
 import os
 
-#We collect all the data and with * we take any arguments
-class OnlineLibrary(Frame):
-    def __init__(self, computer, physics, chemistry, biology, arts):
-        try:
-            self.computer = float(computer.get())
-            self.physics = float(physics.get())
-            self.chemistry = float(chemistry.get())
-            self.biology = float(biology.get())
-            self.arts = float(arts.get())
-        except (ValueError, TypeError): #Check if the input is not a number
-            print("Number of books must be an integer")
-        except AssertionError: #Check if the input is 0 or negative
-            print("Number of books must be at least 1") 
 
-    def totalCount(self, total):
-        self.total = total.set(varComputer + varPhysics + varChemistry + varBiology + varArts)
-    
-    def averageCount(self, average):
-        self.average = average.set((varComputer + varPhysics + varChemistry + varBiology + varArts) / 5)
+def takeInput(*args):
+    try:
+        varComputer = int(computer.get())
+        varPhysics = int(physics.get())
+        varChemistry = int(chemistry.get())
+        varBiology = int(biology.get())
+        varArts = int(arts.get())     
+        total.set(varComputer + varPhysics + varChemistry + varBiology + varArts) 
+    except (ValueError, TypeError): #Check if the input is not a number
+        mbox.showerror("Python Error Message", "Error: Number of books must be an integer and at least 1")
 
+def takeAverage(*args):
+    try:
+        varComputer = int(computer.get())
+        varPhysics = int(physics.get())
+        varChemistry = int(chemistry.get())
+        varBiology = int(biology.get())
+        varArts = int(arts.get())     
+        average.set((varComputer + varPhysics + varChemistry + varBiology + varArts) / 5)   
+    except (ValueError, TypeError): #Check if the input is not a number
+        mbox.showerror("Python Error Message", "Error: Number of books must be an integer and at least 1")
 
 #Creates a new window
 root = Tk() 
@@ -82,14 +85,14 @@ booksLabel = ttk.Label(frame, text = "Books")
 booksLabel.grid(column = 3, row = 5, sticky = (W, E))
 
 #Creates the buttons
-totalButton = ttk.Button(frame, text = "Calculate Total", command = totalCount)
+totalButton = ttk.Button(frame, text = "Calculate Total", command = takeInput)
 totalButton.grid(column = 1, row = 6, sticky = (W, E))
 totalLabel = ttk.Label(frame, text = "Total: ")
 totalLabel.grid(column = 1, row = 7, sticky = (W))
 totAmountLabel = ttk.Label(frame, textvariable = total)
 totAmountLabel.grid(column = 1, row = 7, sticky = (E))
 
-averageButton = ttk.Button(frame, text = "Calculate Average", command = self.averageCount)
+averageButton = ttk.Button(frame, text = "Calculate Average", command = takeAverage)
 averageButton.grid(column = 2, row = 6, sticky = (W, E))
 averageLabel = ttk.Label(frame, text = "Average: ")
 averageLabel.grid(column = 2, row = 7, sticky = (W))

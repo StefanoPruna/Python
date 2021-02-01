@@ -1,13 +1,10 @@
-# Implement a graphical user interface from the onlilibrary_list program
-# Create the readme.md
-# Check if it works in linux
-# Submit them as a4.tgz
 from tkinter import * #Import Graphical User Interfaces
 from tkinter import ttk #ttk is the newer graphic/style
 from tkinter import messagebox as mbox
-import os  
+import os
+import tkinter  
 
-#We collect all the data and with * we take any arguments
+#We collect all the data and with * we take any arguments and we sum the total
 def takeInput(*args):
     try:
         varComputer = int(computer.get())
@@ -15,49 +12,29 @@ def takeInput(*args):
         varChemistry = int(chemistry.get())
         varBiology = int(biology.get())
         varArts = int(arts.get())
-        # assert varComputer > 0
-        # assert varPhysics > 0
-        # assert varChemistry > 0
-        # assert varBiology > 0
-        # assert varArts > 0
         total.set(varComputer + varPhysics + varChemistry + varBiology + varArts)
         average.set((varComputer + varPhysics + varChemistry + varBiology + varArts) / 5)
     except (ValueError, TypeError): #Check if the input is not a number
         mbox.showerror("Python Error Message", "Error: Number of books must be an integer and at least 1")
-    # except AssertionError: #Check if the input is 0 or negative
-    #     mbox.showerror("Error Message", "Error: Number of books must be at least 1")
 
-# def calculateTotal():
-#     try:
-#         varComputer = float(computer.get())
-#         varPhysics = float(physics.get())
-#         varChemistry = float(chemistry.get())
-#         varBiology = float(biology.get())
-#         varArts = float(arts.get())  
-#         takeInput(total.set(varComputer + varPhysics + varChemistry + varBiology + varArts))
-#     except (ValueError, TypeError): #Check if the input is not a number
-#         print("Number of books must be an integer")
-#     except AssertionError: #Check if the input is 0 or negative
-#         print("Number of books must be at least 1")
-
-# def calculateAverage():
-#     try:
-#         varComputer = float(computer.get())
-#         varPhysics = float(physics.get())
-#         varChemistry = float(chemistry.get())
-#         varBiology = float(biology.get())
-#         varArts = float(arts.get())  
-#         average.set(varComputer + varPhysics + varChemistry + varBiology + varArts) / 5
-#     except (ValueError, TypeError): #Check if the input is not a number
-#         print("Number of books must be an integer")
-#     except AssertionError: #Check if the input is 0 or negative
-#         print("Number of books must be at least 1")
-
-#Creates a new window
+#For this function the same as above, but we average the total
+def takeAverage(*args):
+    try:
+        varComputer = int(computer.get())
+        varPhysics = int(physics.get())
+        varChemistry = int(chemistry.get())
+        varBiology = int(biology.get())
+        varArts = int(arts.get())     
+        average.set((varComputer + varPhysics + varChemistry + varBiology + varArts) / 5)   
+    except (ValueError, TypeError): #Check if the input is not a number
+        mbox.showerror("Python Error Message", "Error: Number of books must be an integer and at least 1")
+    
+#Create the window
 root = Tk() 
 root.title("Online Library GUI")
 frame = ttk.Frame(root, padding = "3 3 12 12")
 frame.grid(column = 0, row = 0, sticky = (N, S, E, W))
+frame["relief"] = "sunken"
 root.columnconfigure(0, weight = 1)
 root.rowconfigure(0, weight = 1)
 
@@ -121,11 +98,12 @@ totalLabel.grid(column = 1, row = 7, sticky = (W))
 totAmountLabel = ttk.Label(frame, textvariable = total)
 totAmountLabel.grid(column = 1, row = 7, sticky = (E))
 
-averageButton = ttk.Button(frame, text = "Calculate Average", command = takeInput)
+averageButton = ttk.Button(frame, text = "Calculate Average", command = takeAverage)
 averageButton.grid(column = 2, row = 6, sticky = (W, E))
 averageLabel = ttk.Label(frame, text = "Average: ")
 averageLabel.grid(column = 2, row = 7, sticky = (W))
 aveAmountLabel = ttk.Label(frame, textvariable = average)
 aveAmountLabel.grid(column = 2, row = 7, sticky = (E))
+
 
 root.mainloop() #without this line of command, the window will disappear
