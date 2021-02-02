@@ -12,10 +12,16 @@ def takeInput(*args):
         varChemistry = int(chemistry.get())
         varBiology = int(biology.get())
         varArts = int(arts.get())
+        assert varComputer >= 0
+        assert varPhysics >= 0
+        assert varChemistry >= 0
+        assert varBiology >=0
+        assert varArts >= 0
         total.set(varComputer + varPhysics + varChemistry + varBiology + varArts)
-        average.set((varComputer + varPhysics + varChemistry + varBiology + varArts) / 5)
+    except AssertionError: #Check if the input is negative
+        mbox.showerror("Python Error Message", "Number of books must be zero or at least 1: ")
     except (ValueError, TypeError): #Check if the input is not a number
-        mbox.showerror("Python Error Message", "Error: Number of books must be an integer and at least 1")
+        mbox.showerror("Python Error Message", "Error: Number of books must be an integer")
 
 #For this function the same as above, but we average the total
 def takeAverage(*args):
@@ -24,10 +30,17 @@ def takeAverage(*args):
         varPhysics = int(physics.get())
         varChemistry = int(chemistry.get())
         varBiology = int(biology.get())
-        varArts = int(arts.get())     
+        varArts = int(arts.get()) 
+        assert varComputer >= 0
+        assert varPhysics >= 0
+        assert varChemistry >= 0
+        assert varBiology >=0
+        assert varArts >= 0    
         average.set((varComputer + varPhysics + varChemistry + varBiology + varArts) / 5)   
+    except AssertionError: #Check if the input is negative
+        mbox.showerror("Python Error Message", "Number of books must be zero or at least 1: ")
     except (ValueError, TypeError): #Check if the input is not a number
-        mbox.showerror("Python Error Message", "Error: Number of books must be an integer and at least 1")
+        mbox.showerror("Python Error Message", "Error: Number of books must be an integer")
     
 #Create the window
 root = Tk() 
