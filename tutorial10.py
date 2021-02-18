@@ -5,14 +5,8 @@ class price:
         self.order3 = order3
         self.price = price
 
-    # def orderOne(self):
-    #     self.assertAlmostEqual(self.price(95 == calculate_price(price, order1)))
-    #     raise ValueError("This item does not have a price")
-
-    # def orderTwo(self):
-    #     self.assertAlmostEqual(self.price(26.5 == calculate_price(price, order2)))
-    #     raise ValueError("This item does not have a price")
-    
-    # def orderThree(self):
-    #     self.assertAlmostEqual(self.price(114.75 == calculate_price(price, order3)))
-    #     raise ValueError("This item does not have a price")
+    def purchase(self, quantity):
+        if self.quantity >= quantity:
+            self.quantity -= quantity
+            return quantity * self.price
+        raise ValueError("Not enough product")
