@@ -62,12 +62,14 @@ print(numbers)
 numbers.append(6) #add 6 to the list exitat the end
 
 #
-m = [1,2,3,4]
-for i in range(len(m)):
+m = [1,2,3,4] 
+for i in range(len(m)): # index i is = 0,1,2,3
     m[i] *=2 #multiply the first index number by 2 which is 2, then go to the if; second turn mulitply the second index by 2 which is 4; then 3*2=6;then 4*4=8
-    #print(m)
+    print(m)
     if i<2:
-        m[i] -= m[i+1] #substruct the first index result with the second 2-2=0, then start from the beginning; substruct the second result 4 with 3, =1; then 6 is not less than 2
+        m[i] -= m[i+1] #the index i is 0, so substruct the first index result with the second 2-2=0, then start from the beginning; now the index i is 1, 
+                       #so substruct the second result m[i] 4 with 3, =1; third time i is 3,
+                       #which is not less than 2, thus 6 2
                        #and so restart; then 8 is not less than 2 and finish the for in loop and log to the console the new m list 0,1,6,8
         #print(m)
 print(m)
